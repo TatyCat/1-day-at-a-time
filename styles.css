@@ -1,0 +1,24 @@
+
+body{
+/* Plain White Grey */
+    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
+/* rainy grey  */
+    /* background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); */
+/* Sandy */
+    /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
+    min-height: 100%;
+}
+
+body,
+h1 {
+    font-family: "Raleway", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
