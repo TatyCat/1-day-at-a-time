@@ -12,6 +12,7 @@ body{
     background-size: cover;
     background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
     min-height: 100%;
+    overflow: hidden;
 }
 
 body,
