@@ -5,12 +5,12 @@ body{
 /* rainy grey  */
     /* background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); */
 /* Sandy */
-    /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
+    background-color: #cabcb0;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
+    /* background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg'); */
     min-width: 100%;
     overflow: hidden;
 }
@@ -26,5 +26,4 @@ a{
 
 .greeting{
     font-size: 4.5vw
-    /* margin-bottom: .5%; */
 }
