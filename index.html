@@ -13,6 +13,9 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
+
+<span id="temp"></span>
+
 <!––Greeting Section––> 
     <header class="w3-container w3-center w3-mobile">
         <div class="w3-container w3-margin">
@@ -33,27 +36,43 @@
         </div>
 
         <br>
+
 <!––Weather Section––> 
         <div class="w3-panel w3-center w3-opacity-min w3-margin  w3-round-large w3-container w3-light-grey">
             <div>
-                <p>Weather for <span id="cityLocation"></span>:</p>
+                <p class=""><b>Yahoo! Weather <span id="cityLocation"></span>:</b></p>
+                <p class="w3-wide w3-text-blue-grey">Currently...</p>
+                <p><span id="currentTemp"></span>°</p>
+                <p id="currentWeatherText"></p>
+
+                <br>
+                <p class="w3-wide w3-text-blue-grey">For The Day...</p
                 <span>High</span>
                 <span>&nbsp;  &nbsp; </span>
                 <span>Low</span>
                 
                 <br>
                 
-                <span id="highTemp">75</span>
+               <span><span id="highTemp"></span>°</span>
                 <span>&nbsp;  &nbsp; </span>
-                <span id="lowTemp">87</span>
-
-                <div>
-                    <p id="weatherAlertPanel">A flood warning is in effect for your area</p>
-                <div>
+               <span><span id="lowTemp"></span>°</span>
+                <br>
+                <br>
+                <span id="windInfo"></span>
+                <br>
+                <br>
+                <span id="forcastText"></span>
+                <br>
+                <p>Humidity: <span id="getHumidity"></span>%</p>
             </div>
+
+            <div>
+                <p id="weatherAlertPanel">A flood warning is in effect for your area</p>
+            </div>
+
         </div>
     </div>
-</div>
+    
         
         <br>
 
@@ -68,11 +87,9 @@
 <!––Sun Watch––> 
         <div class="w3-panel w3-center w3-opacity-min w3-margin w3-round-large w3-container w3-light-grey">
             <h2>Sun Watch</h2>
-            <p>Sun Rise: <span id=displaySunRise>3</span>am</p> 
-            <p>Sun Set: <span id=displaySunSet>9</span>pm</p> 
+            <p>Sun Rise: <span id=displaySunRise></span></p> 
+            <p>Sun Set: <span id=displaySunSet></span></p> 
             
-        </div>
-        </div>
         </div>
         
         <br>
@@ -81,31 +98,19 @@
         <div class="w3-panel w3-center w3-margin w3-round-large w3-container w3-light-grey">
             <h2>Top News</h2>
             <div class="w3-center w3-section">
-                <div class="w3-section w3-container w3-card w3-dark-grey w3-cell w3-mobile w3-col m8">
-                    <p>Hello W3.CSS Layout.</p>
-                </div>
-                <div class="w3-section w3-container w3-card w3-dark-grey w3-cell w3-mobile w3-col m8">
-                    <p>Hello W3.CSS Layout.</p>
-                </div>
-                <div class="w3-section w3-container w3-card w3-dark-grey w3-cell w3-mobile">
-                    <p>Hello W3.CSS Layout.</p>
-                </div>
-                <div id="topNews" class="w3-section w3-card w3-dark-grey w3-cell w3-container w3-mobile">
-                    <p>this</p>
-                <div>
-
-                <p>some more</p>
-                </div>
+            <span id="topNews"></span>
             </div>
-            <p>Brought to you by Bing </p>
+
+            <p>Source: NewsAPI.org</p>
         </div>
-    
+
     </article>
 
 
     <footer class="w3-margin-top ">
         <div class="w3-container w3-margin-top w3-display-bottom w3-pane w3-black">
             <div class="w3-center">
+                <p class="w3-tiny w3-margin w3-text-white">1 Day at a Time Is Brought to You By:<p>
                 <span><a href="https://github.com/TatyCat" target="_blank" class="w3-tiny w3-margin w3-text-white"> Built by Tatyanna <i class="fab fa-github"></i> </a></span>
                 <span><a href="https://twitter.com/DevTaty" target="_blank" class="w3-tiny w3-margin w3-text-white">Follow me on Twitter <i class="fab fa-twitter"></i></a></span>
             </div>
@@ -115,6 +120,10 @@
     
     <!-- JS File -->
     <script src="main.js"></script>
+    <script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='tampa, fl')&format=json&callback=callbackFunction"></script>
+
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 </body>
 </html>
 
