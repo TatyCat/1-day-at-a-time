@@ -82,34 +82,36 @@ var callbackFunction = function (data) {
 //--Moon API--
 
 
-/*
+
 
 //--TOP NEWS API--
 var url = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
     'apiKey=c835c5821eec41829538c121edd4e178';
 
-    // var myList = document.querySelector('ul');
-
-var placeArticleText = document.getElementById('topNews')
-var createArticleCards = document.createElement('p');
 
 var req = new Request(url);
 fetch(req)
     .then(function (response) {
-      return response.json();
+    return response.json();
     })
     .then(function (data) {
-        for (var i = 0; i < data.totalResults; i++) {
-            createArticleCards.innerHTML += "<b>" + data.articles[i].title + "<b>" + "<br>" + "<br>";
-            createArticleCards.innerHTML += data.articles[i].description + "<br>" + "<br>";
-            createArticleCards.innerHTML += data.articles[i].url;
-            placeArticleText.appendChild(createArticleCards);
-            createArticleCards.setAttribute("w3-panel w3-margin w3-round-large w3-container w3-grey");
-            
+        for (var i = 0; i < 8; i++) {
+            var createArticleCards = document.createElement('p');
+            document.getElementById('topNews').innerHTML += '<div id = "topNews" class = "w3-card w3-margin"> '
+            +'<img src="' + data.articles[i].urlToImage + '" class="w3-image">'
+            + '<div class = "w3-container w3-center"> '
+            +'<b><p class="w3-small"> ' + data.articles[i].title + ' </p></b> '
+            +'<p class="w3-small"> ' + data.articles[i].description + ' </p> '
+            +'<p><a class="w3-small" href="' + data.articles[i].description + '">Link</a></p>'
+            +'</div>';
         }
     });
-*/
+
+
+
+    
+
        
 
 /*
