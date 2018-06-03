@@ -28,13 +28,14 @@
     <article>
         <div class="w3-display-container w3-opacity-min w3-margin">
             <div class="w3-display-middle" style="white-space:nowrap;"> 
-                <span class="w3-center w3-padding-large w3-black greeting w3-wide w3-animate-opacity w3-large">
+                <span class="w3-center w3-padding-large w3-black greeting w3-wide w3-animate-opacity greeting">
                     Today Is <span id="greetingDate"></span>
                 </span>
             </div>
         </div>
 
         <br>
+        <br class="w3-hide-small">
 
 <!––Weather Section––> 
         <div class="w3-panel w3-center w3-opacity-min w3-margin w3-round-large w3-container w3-light-grey">
@@ -46,7 +47,7 @@
 
                 <br>
 
-                <span class="w3-wide w3-text-blue-grey">For The Day...</p>
+                <p class="w3-wide w3-text-blue-grey">For The Day...</p>
                 <span>High</span>
                 <span>&nbsp;  &nbsp; </span>
                 <span>Low</span>
@@ -69,10 +70,7 @@
             <div>
                 <p id="weatherAlertPanel">A flood warning is in effect for your area</p>
             </div>
-
         </div>
-    </div>
-    
         
         <br>
 
@@ -97,14 +95,18 @@
 <!––Top News––> 
         <div class="w3-panel w3-center w3-margin w3-round-large w3-container w3-light-grey">
             <h2>Top News</h2>
-            <div class="w3-center w3-section">
-            <span id="topNews"></span>
+            
+            <div id="topNews" class="w3-card w3-margin">
+                <img src="https://www.w3schools.com/w3css/img_fjords.jpg" class="w3-image">
+                <div class="w3-container w3-center">
+                    <b><p class="w3-small">Community members wear orange to draw attention to gun violence problem [photos]</p></b>
+                    <p class="w3-small"> Local activists gathered to take part in Chattanooga's "Wear Orange Weekend" event Saturday, part of the national movement to raise awareness about gun violence.</p>
+                    <p><a class="w3-tiny" src=http://www.timesfreepress.com/news/local/story/2018/jun/03/community-members-wear-orange-draw-attentigun/472291/</a></p>
+                </div>
             </div>
 
             <p>Source: NewsAPI.org</p>
         </div>
-
-        
 
     </article>
 

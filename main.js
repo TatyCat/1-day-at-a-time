@@ -41,11 +41,6 @@ document.getElementById('weatherAlertPanel').className = "w3-text-white w3-panel
 
 
 
-//Top News
-// document.getElementById("topNew").innerHTML = 
-
-// document.getElementById('').style.color = "gold";
-
 //--Yahoo WEATHER API--
 
 var callbackFunction = function (data) {
@@ -87,7 +82,7 @@ var callbackFunction = function (data) {
 //--Moon API--
 
 
-
+/*
 
 //--TOP NEWS API--
 var url = 'https://newsapi.org/v2/top-headlines?' +
@@ -114,7 +109,7 @@ fetch(req)
             
         }
     });
-
+*/
        
 
 /*
