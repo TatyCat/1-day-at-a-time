@@ -78,7 +78,7 @@
         <div class="w3-panel w3-center w3-opacity-min w3-margin w3-round-large w3-container w3-light-grey">
             <h2 class="shadowText">Moon Watch</h2>
                 <span class="w3-large" id="moonWatch"></span>
-            
+            <ul></ul>
         </div>
 
         <br>
@@ -123,7 +123,25 @@
     <script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='tampa, fl')&format=json&callback=callbackFunction"></script>
     
 
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script>
+        $.ajax({
+            url: 'https://weather.api.here.com/weather/1.0/report.json',
+            type: 'GET',
+            dataType: 'jsonp',
+            jsonp: 'jsonpcallback',
+            data: {
+                product: 'forecast_astronomy',
+                name: 'Tampa',
+                app_id: 'uWkP17xvZDdldrOXUUp6',
+                app_code: 'r8LqbXcelwUD8Ux6wyUAGw'
+            },
+            success: function (data) {
+                console.log(JSON.stringify(data));
+            }
+        });
+    </script>
+    
 </body>
 </html>
 

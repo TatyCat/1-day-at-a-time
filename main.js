@@ -75,13 +75,58 @@ var callbackFunction = function (data) {
 
 
 //--Moon & Weather Alerts API--
+var weatherAlertApiUrl = "https://weather.api.here.com/weather/1.0/report.json?product=alerts&name=Tampa&app_id=s5F32OuAH5OYhnZZe38j&app_code=i1WL33DXkJCu-OAySmV2CQ&format=json%22";
+var weatherAlertApiUrl2 = "https://weather.cit.api.here.com/weather/1.0/report.json?product=alerts&name=Tampa&app_id=s5F32OuAH5OYhnZZe38j&app_code=i1WL33DXkJCu-OAySmV2CQ&format=json%22";
+var urlExample = "https://weather.cit.api.here.com/weather/1.0/report.json?product=alerts&name=Chicago&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg";
+
+// var myList = document.querySelector('ul');
+// var myRequest = new Request(weatherAlertApiUrl);
+
+// fetch(myRequest)
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         for (var i = 0; i < 2; i++) {
+//             var listItem = document.createElement('li');
+//             listItem.innerHTML = data.alerts.country;
+//             myList.appendChild(listItem);
+//         }
+//     });
+
+
+
+
+
+
+
+// var ready = function () {
+//     $.ajax({
+//         url: 'https://weather.cit.api.here.com/weather/1.0/report.json',
+//         type: 'GET',
+//         dataType: 'jsonp',
+//         jsonp: 'jsonpcallback',
+//         data: {
+//             product: 'alerts',
+//             name: 'Chicago',
+//             app_id: 's5F32OuAH5OYhnZZe38j',
+//             app_code: 'i1WL33DXkJCu-OAySmV2CQ'
+//         },
+//         success: function (data) {
+//             console.log(JSON.stringify(data));
+//         }
+//     });
+// }
+
+
+
+
+
+
 /*
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 // Severe Weather Alert API
 var weatherAlertApiUrl =
-'https://weather.cit.api.here.com/weather/1.0/report.json'+'?app_id={s5F32OuAH5OYhnZZe38j}'
-+ '&app_code={i1WL33DXkJCu-OAySmV2CQ}'
-+'&product=alerts'
-+'&name=Duluth';
 
 var weatherAlertReq = new Request(weatherAlertApiUrl);
 fetch(weatherAlertReq)
@@ -97,7 +142,10 @@ document.getElementById('weatherAlertPanel').className = "w3-text-white w3-panel
 */
 
 // Moon API
-var moonApiUrl = 'https://weather.cit.api.here.com/weather/1.0/report.json?app_id=s5F32OuAH5OYhnZZe38j&app_code=i1WL33DXkJCu-OAySmV2CQ&product=alerts&name=Tampa';
+// var moonApiUrl = 'https://weather.api.here.com/weather/1.0/report.json?product=alerts&name=Tampa&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg';
+
+
+/*
 
 var moonReq = new Request(moonApiUrl);
 fetch(moonReq)
@@ -105,8 +153,9 @@ fetch(moonReq)
         return moonResponse.json();
     })
     .then(function (moonData) {
-        document.getElementById('moonWatch').innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;
+        document.getElementById('moonWatch').innerText = moonData.alerts.country;
     });
+*/
 
 
 
