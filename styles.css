@@ -1,14 +1,12 @@
 
 body{
-/* Plain White Grey */
-    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /* background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg'); */
     background-image: url('images/rainy_leaf.jpg');
-    min-width: 80%;
+    min-width: 100%;
     overflow: hidden;
 }
 
@@ -27,4 +25,14 @@ a{
 
 .shadowText{
     text-shadow:1px 1px 0 #666;
+}
+
+
+@media screen and (max-width: 500px) {
+    body {
+        background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg') no-repeat center fixed;
+        background-image: none;
+        background-size: cover;
+
+    }
 }
