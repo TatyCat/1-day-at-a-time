@@ -35,10 +35,6 @@ let months = ["January", "February", "March", "April", "May", "June", "July", "A
 document.getElementById('greetingDate').innerText = weekdays[getTodaysDay] + ", " + months[getTodaysMonth] + " " + getTodaysDate + ", " + getTodaysYear;
 
 
-//weather Alert Panel *if Statement*
-document.getElementById('weatherAlertPanel').className = "w3-text-white w3-panel w3-red w3-round-large ";
-
-
 
 
 //--Yahoo WEATHER API--
@@ -78,8 +74,44 @@ var callbackFunction = function (data) {
 
 
 
-
 //--Moon & Weather Alerts API--
+/*
+// Severe Weather Alert API
+var weatherAlertApiUrl =
+'https://weather.cit.api.here.com/weather/1.0/report.json'+'?app_id={s5F32OuAH5OYhnZZe38j}'
++ '&app_code={i1WL33DXkJCu-OAySmV2CQ}'
++'&product=alerts'
++'&name=Duluth';
+
+var weatherAlertReq = new Request(weatherAlertApiUrl);
+fetch(weatherAlertReq)
+    .then(function (weatherAlertResponse) {
+        return weatherAlertResponse.json();
+    })
+    .then(function (weatherAlertData) {
+        document.getElementById('weatherAlertPanel').innerText = weatherAlertData.alerts.country;
+  });
+
+//Weather Alert Styling *if Statement*
+document.getElementById('weatherAlertPanel').className = "w3-text-white w3-panel w3-red w3-round-large ";
+*/
+
+// Moon API
+var moonApiUrl = 'https://weather.cit.api.here.com/weather/1.0/report.json?app_id=s5F32OuAH5OYhnZZe38j&app_code=i1WL33DXkJCu-OAySmV2CQ&product=alerts&name=Tampa';
+
+var moonReq = new Request(moonApiUrl);
+fetch(moonReq)
+    .then(function (moonResponse) {
+        return moonResponse.json();
+    })
+    .then(function (moonData) {
+        document.getElementById('moonWatch').innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;
+    });
+
+
+
+
+
 
 
 

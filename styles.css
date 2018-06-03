@@ -2,14 +2,13 @@
 body{
 /* Plain White Grey */
     /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
-
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /* background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg'); */
     background-image: url('images/rainy_leaf.jpg');
-    min-width: 100%;
+    min-width: 80%;
     overflow: hidden;
 }
 
@@ -24,4 +23,8 @@ a{
 
 .greeting{
     font-size: 4.5vw
+}
+
+.shadowText{
+    text-shadow:1px 1px 0 #666;
 }
