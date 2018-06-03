@@ -79,7 +79,7 @@ var callbackFunction = function (data) {
 
 
 
-//--Moon API--
+//--Moon & Weather Alerts API--
 
 
 
@@ -103,37 +103,7 @@ fetch(req)
             + '<div class = "w3-container w3-center"> '
             +'<b><p class="w3-small"> ' + data.articles[i].title + ' </p></b> '
             +'<p class="w3-small"> ' + data.articles[i].description + ' </p> '
-            +'<p><a class="w3-small" href="' + data.articles[i].description + '">Link</a></p>'
+            +'<p><a class="w3-small" href="' + data.articles[i].url + '">[Link]</a></p>'
             +'</div>';
         }
     });
-
-
-
-    
-
-       
-
-/*
- // let addArticle = document.getElementById("topNews").innerHTML;
-
-
-// var listItem = document.createElement('li');
-// listItem.innerHTML = data.articles[i].title;
-// myList.appendChild(listItem);
-// let addArticle = document.getElementById("topNews").innerHTML = data.articles[i].title;
-
-
-
-        for (var i = 0; i < 8; i++) {
-            
-            // console.log(articles.title);
-            // +articles.title + <br>
-            // +articles.description + <br>
-            // +articles.urlToImage + <br>
-            // +articles.url
-            // + '</p>';
-        };
-    })
-*/
-    
