@@ -74,90 +74,34 @@ var callbackFunction = function (data) {
 
 
 
-//--Moon & Weather Alerts API--
-var weatherAlertApiUrl = "https://weather.api.here.com/weather/1.0/report.json?product=alerts&name=Tampa&app_id=s5F32OuAH5OYhnZZe38j&app_code=i1WL33DXkJCu-OAySmV2CQ&format=json%22";
-var weatherAlertApiUrl2 = "https://weather.cit.api.here.com/weather/1.0/report.json?product=alerts&name=Tampa&app_id=s5F32OuAH5OYhnZZe38j&app_code=i1WL33DXkJCu-OAySmV2CQ&format=json%22";
-var urlExample = "https://weather.cit.api.here.com/weather/1.0/report.json?product=alerts&name=Chicago&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg";
+//--Weather Alerts API--
+var wurl = "https://api.weather.gov/alerts/active?zone=FLC057";
+// var wurl = "https://api.weather.gov/alerts/active?point=28.030671,-82.407953";
 
-// var myList = document.querySelector('ul');
-// var myRequest = new Request(weatherAlertApiUrl);
+var myRequest = new Request(wurl);
 
-// fetch(myRequest)
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         for (var i = 0; i < 2; i++) {
-//             var listItem = document.createElement('li');
-//             listItem.innerHTML = data.alerts.country;
-//             myList.appendChild(listItem);
-//         }
-//     });
-
-
-
-
-
-
-
-// var ready = function () {
-//     $.ajax({
-//         url: 'https://weather.cit.api.here.com/weather/1.0/report.json',
-//         type: 'GET',
-//         dataType: 'jsonp',
-//         jsonp: 'jsonpcallback',
-//         data: {
-//             product: 'alerts',
-//             name: 'Chicago',
-//             app_id: 's5F32OuAH5OYhnZZe38j',
-//             app_code: 'i1WL33DXkJCu-OAySmV2CQ'
-//         },
-//         success: function (data) {
-//             console.log(JSON.stringify(data));
-//         }
-//     });
-// }
-
-
-
-
-
-
-/*
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-// Severe Weather Alert API
-var weatherAlertApiUrl =
-
-var weatherAlertReq = new Request(weatherAlertApiUrl);
-fetch(weatherAlertReq)
-    .then(function (weatherAlertResponse) {
-        return weatherAlertResponse.json();
+fetch(myRequest)
+    .then(function (response) {
+        return response.json();
     })
-    .then(function (weatherAlertData) {
-        document.getElementById('weatherAlertPanel').innerText = weatherAlertData.alerts.country;
-  });
+    .then(function (data) {
+        for (var i = 0; i <= data.features.length; i++) {
+            var alertItem = document.createElement('p');
+            document.getElementById('weatherAlertPanel').innerHTML += 
+            '<p class="w3-text-white w3-small w3-panel w3-red w3-round-large w3-section">'  
+            + data.features[i].properties.severity 
+            + " " 
+            + data.features[i].properties.headline
+            +"<br>" 
+            // + data.features[i].properties.description
+            +'</p>';
+        }
+    });
 
-//Weather Alert Styling *if Statement*
-document.getElementById('weatherAlertPanel').className = "w3-text-white w3-panel w3-red w3-round-large ";
-*/
+
+
 
 // Moon API
-// var moonApiUrl = 'https://weather.api.here.com/weather/1.0/report.json?product=alerts&name=Tampa&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg';
-
-
-/*
-
-var moonReq = new Request(moonApiUrl);
-fetch(moonReq)
-    .then(function (moonResponse) {
-        return moonResponse.json();
-    })
-    .then(function (moonData) {
-        document.getElementById('moonWatch').innerText = moonData.alerts.country;
-    });
-*/
-
-
 
 
 
@@ -179,7 +123,7 @@ fetch(req)
     .then(function (data) {
         for (var i = 0; i < data.totalResults; i++) {
             var createArticleCards = document.createElement('p');
-            document.getElementById('topNews').innerHTML += '<div id = "topNews" class = "w3-card w3-margin"> '
+            document.getElementById('topNews').innerHTML += '<div class = "w3-card w3-margin"> '
             +'<img src="' + data.articles[i].urlToImage + '" class="w3-image">'
             + '<div class = "w3-container w3-center"> '
             +'<b><p class="w3-small"> ' + data.articles[i].title + ' </p></b> '
@@ -188,3 +132,4 @@ fetch(req)
             +'</div>';
         }
     });
+// removed :id = "topNews" - From 140/innerhtml top news

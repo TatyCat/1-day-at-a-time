@@ -122,25 +122,7 @@
     <script src="main.js"></script>
     <script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='tampa, fl')&format=json&callback=callbackFunction"></script>
     
-
-     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-     <script>
-        $.ajax({
-            url: 'https://weather.api.here.com/weather/1.0/report.json',
-            type: 'GET',
-            dataType: 'jsonp',
-            jsonp: 'jsonpcallback',
-            data: {
-                product: 'forecast_astronomy',
-                name: 'Tampa',
-                app_id: 'uWkP17xvZDdldrOXUUp6',
-                app_code: 'r8LqbXcelwUD8Ux6wyUAGw'
-            },
-            success: function (data) {
-                console.log(JSON.stringify(data));
-            }
-        });
-    </script>
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>     
     
 </body>
 </html>
