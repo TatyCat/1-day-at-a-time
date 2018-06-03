@@ -96,7 +96,7 @@ fetch(req)
     return response.json();
     })
     .then(function (data) {
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < data.totalResults; i++) {
             var createArticleCards = document.createElement('p');
             document.getElementById('topNews').innerHTML += '<div id = "topNews" class = "w3-card w3-margin"> '
             +'<img src="' + data.articles[i].urlToImage + '" class="w3-image">'
