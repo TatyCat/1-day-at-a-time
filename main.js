@@ -103,7 +103,7 @@ fetch(req)
             + '<div class = "w3-container w3-center"> '
             +'<b><p class="w3-small"> ' + data.articles[i].title + ' </p></b> '
             +'<p class="w3-small"> ' + data.articles[i].description + ' </p> '
-            +'<p><a class="w3-small" href="' + data.articles[i].url + '">[Link]</a></p>'
+            +'<p><a class="w3-small" target="_blank" href="' + data.articles[i].url + '">[Link]</a></p>'
             +'</div>';
         }
     });
