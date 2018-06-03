@@ -93,16 +93,44 @@ var callbackFunction = function (data) {
 var url = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
     'apiKey=c835c5821eec41829538c121edd4e178';
+
+    // var myList = document.querySelector('ul');
+
+var placeArticleText = document.getElementById('topNews')
+var createArticleCards = document.createElement('p');
+
 var req = new Request(url);
 fetch(req)
     .then(function (response) {
-        console.log(response.json());
+      return response.json();
+    })
+    .then(function (data) {
+        for (var i = 0; i < data.totalResults; i++) {
+            createArticleCards.innerHTML += "<b>" + data.articles[i].title + "<b>" + "<br>" + "<br>";
+            createArticleCards.innerHTML += data.articles[i].description + "<br>" + "<br>";
+            createArticleCards.innerHTML += data.articles[i].url;
+            placeArticleText.appendChild(createArticleCards);
+            createArticleCards.setAttribute("w3-panel w3-margin w3-round-large w3-container w3-grey");
+            
+        }
+    });
 
-        let articles = response.articles;
-        for (var i = 0; i < articles.totalResults; i++) {
-            document.getElementById("topNews").innerHTML =
-            // '<p class = "w3-section w3-container w3-card w3-dark-grey w3-cell w3-mobile w3-col m8">' +
-            '<p>' + articles[i].title + '</p>';
+       
+
+/*
+ // let addArticle = document.getElementById("topNews").innerHTML;
+
+
+// var listItem = document.createElement('li');
+// listItem.innerHTML = data.articles[i].title;
+// myList.appendChild(listItem);
+// let addArticle = document.getElementById("topNews").innerHTML = data.articles[i].title;
+
+
+
+        for (var i = 0; i < 8; i++) {
+            
+            // console.log(articles.title);
             // +articles.title + <br>
             // +articles.description + <br>
             // +articles.urlToImage + <br>
@@ -110,5 +138,5 @@ fetch(req)
             // + '</p>';
         };
     })
-
+*/
     
