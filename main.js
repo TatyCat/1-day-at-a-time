@@ -25,9 +25,9 @@ if ((getTimeOfDay >= 21) && (getTimeOfDay <= 23)) {
 
 
 //Display Today's Date
-let getTodaysMonth = new Date().getMonth();
-let getTodaysDate = new Date().getDate();
-let getTodaysDay = new Date().getDay();
+var getTodaysMonth = new Date().getMonth();
+var getTodaysDate = new Date().getDate();
+var getTodaysDay = new Date().getDay();
 
 var getTodaysYear = new Date().getFullYear();
 let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -75,61 +75,71 @@ var callbackFunction = function (data) {
 
 
 //--Weather Alerts API--
-var wurl = "https://api.weather.gov/alerts/active?zone=FLC057";
+var wUrl = "https://api.weather.gov/alerts/active?zone=FLC057";
+// var wurl = "https://api.weather.gov/alerts/active?";
 // var wurl = "https://api.weather.gov/alerts/active?point=28.030671,-82.407953";
 
-var myRequest = new Request(wurl);
-
-fetch(myRequest)
-    .then(function (response) {
-        return response.json();
+var weatherRequest = new Request(wUrl);
+fetch(weatherRequest)
+    .then(function (weatherResponse) {
+        return weatherResponse.json();
     })
-    .then(function (data) {
-        for (var i = 0; i <= data.features.length; i++) {
+    .then(function (weatherData) {
+        for (var i = 0; i <= weatherData.features.length; i++) {
             var alertItem = document.createElement('p');
             document.getElementById('weatherAlertPanel').innerHTML += 
             '<p class="w3-text-white w3-small w3-panel w3-red w3-round-large w3-section">'  
-            + data.features[i].properties.severity 
+            + weatherData.features[i].properties.severity
             + " " 
-            + data.features[i].properties.headline
-            +"<br>" 
-            // + data.features[i].properties.description
-            +'</p>';
+            + weatherData.features[i].properties.headline
+            + "<br>" 
+            + '</p>';
         }
     });
 
 
 
-
-// Moon API
-
-
-
-
+//--Moon API--
+var moonUrl = "http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL";
+var moonReq = new Request(moonUrl);
+fetch(moonReq)
+    .then(function (moonResponse) {
+        return moonResponse.json();
+    })
+    .then(function (moonData) {
+        document.getElementById('moonWatch').innerHTML= 
+            '<p class="w3-card w3-margin w3-container w3-white w3-center">'
+            + "Current Phase: "
+            + moonData.curphase
+            + '<br>'
+            + "Next Phase: "
+            + moonData.closestphase.phase
+            + " on "
+            + moonData.closestphase.date
+            + '</p>'; 
+    });
 
 
 
 //--TOP NEWS API--
-var url = 'https://newsapi.org/v2/top-headlines?' +
+let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
     'apiKey=c835c5821eec41829538c121edd4e178';
 
-
-var req = new Request(url);
-fetch(req)
-    .then(function (response) {
-    return response.json();
+let newsReq = new Request(topNewsUrl);
+fetch(newsReq)
+    .then(function (newsResponse) {
+    return newsResponse.json();
     })
-    .then(function (data) {
-        for (var i = 0; i < data.totalResults; i++) {
+    .then(function (newsData) {
+        for (let i = 0; i < newsData.totalResults; i++) {
             var createArticleCards = document.createElement('p');
             document.getElementById('topNews').innerHTML += '<div class = "w3-card w3-margin"> '
-            +'<img src="' + data.articles[i].urlToImage + '" class="w3-image">'
+            +'<img src="' + newsData.articles[i].urlToImage + '" class="w3-image" style="max-width:77%">'
             + '<div class = "w3-container w3-center"> '
-            +'<b><p class="w3-small"> ' + data.articles[i].title + ' </p></b> '
-            +'<p class="w3-small"> ' + data.articles[i].description + ' </p> '
-            +'<p><a class="w3-small" target="_blank" href="' + data.articles[i].url + '">[Link]</a></p>'
+            +'<b><p class="w3-small"> ' + newsData.articles[i].title + ' </p></b> '
+            +'<p class="w3-small"> ' + newsData.articles[i].description + ' </p> '
+            +'<p><a class="w3-small" target="_blank" href="' + newsData.articles[i].url + '">[Link]</a></p>'
             +'</div>';
         }
     });
-// removed :id = "topNews" - From 140/innerhtml top news
