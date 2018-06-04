@@ -101,6 +101,19 @@ fetch(weatherRequest)
 
 
 //--Moon API--
+
+fetch("http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL")
+    .then(function (res) {
+        return res, json()
+        }).then(function (data) {
+            document.getElementById("test").innerText = data;
+            document.getElementById("curMoonWatch").innerText = data;
+        }).catch(function (err) {
+            document.getElementById("test").innerText = err;
+            document.getElementById("curMoonWatch").innerText = err;
+        })
+
+/*
 var moonUrl = "http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL";
 var moonReq = new Request(moonUrl);
 fetch(moonReq)
@@ -114,7 +127,7 @@ fetch(moonReq)
             + " on "
             + moonData.closestphase.date;
     });
-
+*/
         // document.getElementById('moonWatch').innerHTML= 
         //     '<p class="w3-card w3-margin w3-container w3-white w3-center">'
         //     + '<span class="w3-text-blue-grey"> Current Phase: </span>'
