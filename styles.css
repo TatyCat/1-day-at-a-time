@@ -36,7 +36,7 @@ a{
         -o-background-size: auto;
         background-size: auto;
         background-repeat: no-repeat;
-        /* background-position: center; */
+        background-attachment: fixed;
         width: auto;
         height: auto;
         background-origin: none;
