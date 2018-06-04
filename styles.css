@@ -29,9 +29,8 @@ a{
 
 @media screen and (max-width: 500px) {
     body {
-        /* background-image: url('images/christmas_decor_background.jpg'); */
-        /* background-size: cover; */
         background-attachment: scroll;
+        min-width: 50%;
         position: absolute;
     }
 }
