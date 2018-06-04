@@ -98,7 +98,7 @@ fetch(weatherRequest)
 
 
 //--TOP NEWS API--
-var newsKey = configKeys.newsApiKey;
+
 let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
     'apiKey=' + 'c835c5821eec41829538c121edd4e178';
