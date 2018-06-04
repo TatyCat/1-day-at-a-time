@@ -108,7 +108,7 @@ fetch(moonReq)
         return moonResponse.json();
     })
     .then(function (moonData) {
-        document.getElementById("nextMoonWatch").innerText = moonData;
+        document.getElementById("nextMoonWatch").innerText = moonData.curphase;
         document.getElementById("curMoonWatch").innerHTML = 
             moonData.closestphase.phase
             + " on "
