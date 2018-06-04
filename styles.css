@@ -30,7 +30,7 @@ a{
 @media screen and (max-width: 500px) {
     body {
         background-image: url('images/christmas_decor_background.jpg');
-        background-size:cover;
+        background-size: cover;
         /* background-attachment: scroll; */
     }
 }
