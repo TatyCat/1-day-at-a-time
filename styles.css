@@ -34,10 +34,10 @@ a{
         -webkit-background-size: auto;
         -moz-background-size: auto;
         -o-background-size: auto;
-        background-size: cover;
+        background-size: auto;
         background-repeat: no-repeat;
         background-position: center;
         width: auto;
-        height: auto;
+        height: 100%;
     }
 }
