@@ -134,9 +134,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
-        var weatherId = configKeys.weatherApiId;
-        var weatherCode = configKeys.weatherApiCode;
-
+        
         $.ajax({
             url: 'https://weather.cit.api.here.com/weather/1.0/report.json',
             type: 'GET',
@@ -145,8 +143,8 @@
             data: {
                 product: 'forecast_astronomy',
                 name: 'tampa',
-                app_id: weatherId,
-                app_code: weatherCode
+                app_id: 'DemoAppId01082013GAL',
+                app_code: 'AJKnXv84fjrb0KIHawS0Tg'
             },
             success: function (moonData) {
                 document.getElementById("curMoonWatch").innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;

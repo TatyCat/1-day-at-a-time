@@ -101,7 +101,7 @@ fetch(weatherRequest)
 var newsKey = configKeys.newsApiKey;
 let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
-    'apiKey='+ newsKey;
+    'apiKey=' + 'c835c5821eec41829538c121edd4e178';
 
 let newsReq = new Request(topNewsUrl);
 fetch(newsReq)
