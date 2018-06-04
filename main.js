@@ -100,70 +100,6 @@ fetch(weatherRequest)
 
 
 
-//--Moon API--
-
-var go = function() {
-    let request = new XMLHttpRequest();
-    console.log(" kkhkjhj");
-    request.open('GET', 'https://thesimpsonsquoteapi.glitch.me/quotes', true);
-    console.log(request + " kkhkjhj");
-    request.onload = function () {
-        let data = JSON.parse(this.response);
-        if (request.status >= 200 && request.status < 400) {
-                document.getElementById('nextMoonWatch').innerText = data.astronomy;
-                document.getElementById('curMoonWatch').innerText = data.astronomy;
-        
-        }
-        else{
-             document.getElementById('nextMoonWatch').innerText = "no";
-        }
-    };
-    request.send();
-};
-
-
-
-
-
-
-
-/*
-var moonUrl = "http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL";
-var moonReq = new Request(moonUrl);
-fetch(moonReq)
-    .then(function(moonResponse) {
-        return moonResponse.json();
-    })
-    .then(function(moonData) {
-        document.getElementById("nextMoonWatch").innerText = moonData.curphase;
-        document.getElementById("curMoonWatch").innerHTML = 
-            moonData.closestphase.phase
-            + " on "
-            + moonData.closestphase.date;
-    });
-*/
-        // document.getElementById('moonWatch').innerHTML= 
-        //     '<p class="w3-card w3-margin w3-container w3-white w3-center">'
-        //     + '<span class="w3-text-blue-grey"> Current Phase: </span>'
-        //     + '<br>'
-        //     + moonData.curphase
-        //     + '<br>'
-        //     +'<span class="w3-text-blue-grey">Next Phase: </span>'
-        //     +'<br>'
-        //     + moonData.closestphase.phase
-        //     + " on "
-        //     + moonData.closestphase.date
-        //     + '</p>'; 
-
-// from html file-
-// <span class="w3-large">
-// <p id="moonWatch"></p>
-// </span>
-
-    
-
-
-
 //--TOP NEWS API--
 let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
@@ -186,3 +122,7 @@ fetch(newsReq)
             +'</div>';
         }
     });
+
+
+    
+    //--Moon API is located on the html page due to CORS issue. JSONP only works with the HERE API.

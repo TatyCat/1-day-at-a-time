@@ -77,18 +77,17 @@
             <h2 class="shadowText">Moon Watch</h2>
             <span class="w3-large">
                 <p class="w3-card w3-margin w3-container w3-white w3-center">
-                    <span class="w3-text-blue-grey">Current Phase: </span>
+                    <span class="w3-text-blue-grey">Current Moon Phase: </span>
                     <br>
                     <span id=curMoonWatch></span>
                     <br>
                     <br>
-                    <span class="w3-text-blue-grey">Next Phase: </span>
+                    <span class="w3-text-blue-grey">Next Moon Phase: </span>
                     <br>
-                    <span id=nextMoonWatch></span>
+                    <span id=nextMoonWatchPhase></span> on
+                    <span id=nextMoonWatchDate></span>
                 </p>
             </span>
-
-            <p>Source: http://aa.usno.navy.mil</p>
         </div>
 
         <br>
@@ -136,6 +135,18 @@
 <!--JS Scripts-->
     <script src="main.js"></script>
     <script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='tampa, fl')&format=json&callback=callbackFunction"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        var myLogFile;var jsonpHelper = function(payload){return payload;};
+        $.ajax({url: 'http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL',
+        dataType: 'json',jsonp: false, jsonpCallback: 'jsonpHelper',
+        success: function(moonData) {
+            document.getElementById("curMoonWatch").innerText = moonData.curphase;
+            document.getElementById("nextMoonWatchPhase").innerText = moonData.closestphase.phase;
+            document.getElementById("nextMoonWatchDate").innerText = moonData.closestphase.date;
+            }
+        });
+    </script>
 </body>
 </html>
-
