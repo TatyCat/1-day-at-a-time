@@ -39,10 +39,11 @@ a{
         background-size: cover;
        background-size:100%; */
 
-       background-image: url('images/trees_nature_background.jpg') no-repeat center center fixed;
+       background-image: url('images/trees_nature_background.jpg') no-repeat center center;
        -webkit-background-size: cover;
        -moz-background-size: cover;
        -o-background-size: cover;
        background-size: cover;
+
     }
 }

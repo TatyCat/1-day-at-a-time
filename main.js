@@ -101,28 +101,22 @@ fetch(weatherRequest)
 
 
 //--Moon API--
-var myRequest = new Request("http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL");
 
-fetch(myRequest).then(function (response) {
-// returns a Headers{} object
-     document.getElementById("curMoonWatch").innerText = response.headers;
-     }).catch(function (err) {
-         document.getElementById("curMoonWatch").innerText = err;
-     })
-;
+
+var myRequest = new Request("https://weather.cit.api.here.com/weather/1.0/report.json?product=forecast_astronomy&name=tampa&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg");
+
+
+
+
+
+
+
+
+
+
 
 
 /*
-fetch("http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL")
-    .then(function (res) {
-        return res, json()
-        }).then(function (data) {
-            document.getElementById("curMoonWatch").innerText = data;
-        }).catch(function (err) {
-            document.getElementById("curMoonWatch").innerText = err;
-        })
-
-
 var moonUrl = "http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL";
 var moonReq = new Request(moonUrl);
 fetch(moonReq)
