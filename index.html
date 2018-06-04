@@ -77,12 +77,12 @@
             <h2 class="shadowText">Moon Watch</h2>
             <span class="w3-large">
                 <p class="w3-card w3-margin w3-container w3-white w3-center">
-                    <span class="w3-text-blue-grey">Current Moon Phase: </span>
+                    <span class="w3-text-blue-grey">Current Phase: </span>
                     <br>
                     <span id=curMoonWatch></span>
                     <br>
                     <br>
-                    <span class="w3-text-blue-grey">Next Moon Phase: </span>
+                    <span class="w3-text-blue-grey">Next Phase: </span>
                     <br>
                     <span id=nextMoonWatchPhase></span> on
                     <span id=nextMoonWatchDate></span>
@@ -138,13 +138,28 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
+        $.ajax({
+            url: 'https://weather.cit.api.here.com/weather/1.0/report.json',
+            type: 'GET',
+            dataType: 'jsonp',
+            jsonp: 'jsonpcallback',
+            data: {
+                product: 'forecast_astronomy',
+                name: 'tampa',
+                app_id: 'DemoAppId01082013GAL',
+                app_code: 'AJKnXv84fjrb0KIHawS0Tg'
+            },
+            success: function (moonData) {
+                document.getElementById("curMoonWatch").innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;
+            }
+        });  
+        
         var myLogFile;var jsonpHelper = function(payload){return payload;};
         $.ajax({url: 'http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL',
         dataType: 'json',jsonp: false, jsonpCallback: 'jsonpHelper',
-        success: function(moonData) {
-            document.getElementById("curMoonWatch").innerText = moonData.curphase;
-            document.getElementById("nextMoonWatchPhase").innerText = moonData.closestphase.phase;
-            document.getElementById("nextMoonWatchDate").innerText = moonData.closestphase.date;
+        success: function(data) {
+            document.getElementById("nextMoonWatchPhase").innerText = data.closestphase.phase;
+            document.getElementById("nextMoonWatchDate").innerText = data.closestphase.date;
             }
         });
     </script>
