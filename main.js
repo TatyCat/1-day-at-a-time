@@ -108,18 +108,31 @@ fetch(moonReq)
         return moonResponse.json();
     })
     .then(function (moonData) {
-        document.getElementById('moonWatch').innerHTML= 
-            '<p class="w3-card w3-margin w3-container w3-white w3-center">'
-            + '<span class="w3-text-blue-grey"> Current Phase: </span>'
-            + '<br>'
-            + moonData.curphase
-            + '<br>'
-            +'<span class="w3-text-blue-grey">Next Phase: </span>'
-            +'<br>'
-            + moonData.closestphase.phase
+        document.getElementById("nextMoonWatch").innerText = moonData.curphase;
+        document.getElementById("curMoonWatch").innerHTML = 
+            moonData.closestphase.phase
             + " on "
-            + moonData.closestphase.date
-            + '</p>'; 
+            + moonData.closestphase.date;
+
+
+        // document.getElementById('moonWatch').innerHTML= 
+        //     '<p class="w3-card w3-margin w3-container w3-white w3-center">'
+        //     + '<span class="w3-text-blue-grey"> Current Phase: </span>'
+        //     + '<br>'
+        //     + moonData.curphase
+        //     + '<br>'
+        //     +'<span class="w3-text-blue-grey">Next Phase: </span>'
+        //     +'<br>'
+        //     + moonData.closestphase.phase
+        //     + " on "
+        //     + moonData.closestphase.date
+        //     + '</p>'; 
+
+// from html file-
+// <span class="w3-large">
+// <p id="moonWatch"></p>
+// </span>
+
     });
 
 
