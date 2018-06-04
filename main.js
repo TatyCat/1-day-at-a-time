@@ -82,7 +82,7 @@ var wUrl = "https://api.weather.gov/alerts/active?zone=FLC057";
 
 var weatherRequest = new Request(wUrl);
 fetch(weatherRequest)
-    .then(function (weatherResponse) {
+    .then(function(weatherResponse) {
         return weatherResponse.json();
     })
     .then(function (weatherData) {
@@ -104,16 +104,16 @@ fetch(weatherRequest)
 var moonUrl = "http://api.usno.navy.mil/rstt/oneday?date=6/3/2018&loc=Tampa,%20FL";
 var moonReq = new Request(moonUrl);
 fetch(moonReq)
-    .then(function (moonResponse) {
+    .then(function(moonResponse) {
         return moonResponse.json();
     })
-    .then(function (moonData) {
+    .then(function(moonData) {
         document.getElementById("nextMoonWatch").innerText = moonData.curphase;
         document.getElementById("curMoonWatch").innerHTML = 
             moonData.closestphase.phase
             + " on "
             + moonData.closestphase.date;
-
+    });
 
         // document.getElementById('moonWatch').innerHTML= 
         //     '<p class="w3-card w3-margin w3-container w3-white w3-center">'
@@ -133,7 +133,7 @@ fetch(moonReq)
 // <p id="moonWatch"></p>
 // </span>
 
-    });
+    
 
 
 

@@ -29,11 +29,14 @@ a{
 
 @media screen and (max-width: 500px) {
     body {
-        background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
-        background-size:90%;
-        height:100%;
-        /* background-attachment: scroll; */
-        /* background-size: cover;
-        min-width: 100%; */
+        background-attachment: none;
+        background-position: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url('images/trees_nature_background.jpg');
+        /* background-size:90%;*/
+        /* background-size: cover;*/
+       background-size:100%;
+       width:100%;
     }
 }
