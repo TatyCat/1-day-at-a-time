@@ -110,10 +110,12 @@ fetch(moonReq)
     .then(function (moonData) {
         document.getElementById('moonWatch').innerHTML= 
             '<p class="w3-card w3-margin w3-container w3-white w3-center">'
-            + "Current Phase: "
+            + '<span class="w3-text-blue-grey"> Current Phase: </span>'
+            + '<br>'
             + moonData.curphase
             + '<br>'
-            + "Next Phase: "
+            +'<span class="w3-text-blue-grey">Next Phase: </span>'
+            +'<br>'
             + moonData.closestphase.phase
             + " on "
             + moonData.closestphase.date
