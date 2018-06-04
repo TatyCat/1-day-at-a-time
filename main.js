@@ -77,8 +77,8 @@ var callbackFunction = function (data) {
 
 //--Weather Alerts API--
 var wUrl = "https://api.weather.gov/alerts/active?zone=FLC057";
-// var wurl = "https://api.weather.gov/alerts/active?";
-// var wurl = "https://api.weather.gov/alerts/active?point=28.030671,-82.407953";
+// var wUrl = "https://api.weather.gov/alerts/active?";
+// var wUrl = "https://api.weather.gov/alerts/active?point=28.030671,-82.407953";
 
 var weatherRequest = new Request(wUrl);
 fetch(weatherRequest)
@@ -86,7 +86,7 @@ fetch(weatherRequest)
         return weatherResponse.json();
     })
     .then(function (weatherData) {
-        for (var i = 0; i <= weatherData.features.length; i++) {
+        for (var i = 0; i < weatherData.features.length; i++) {
             var alertItem = document.createElement('p');
             document.getElementById('weatherAlertPanel').innerHTML += 
             '<p class="w3-text-white w3-small w3-panel w3-red w3-round-large w3-section">'  
@@ -102,13 +102,24 @@ fetch(weatherRequest)
 
 //--Moon API--
 
-
-var myRequest = new Request("https://weather.cit.api.here.com/weather/1.0/report.json?product=forecast_astronomy&name=tampa&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg");
-
-
-
-
-
+var go = function() {
+    let request = new XMLHttpRequest();
+    console.log(" kkhkjhj");
+    request.open('GET', 'https://thesimpsonsquoteapi.glitch.me/quotes', true);
+    console.log(request + " kkhkjhj");
+    request.onload = function () {
+        let data = JSON.parse(this.response);
+        if (request.status >= 200 && request.status < 400) {
+                document.getElementById('nextMoonWatch').innerText = data.astronomy;
+                document.getElementById('curMoonWatch').innerText = data.astronomy;
+        
+        }
+        else{
+             document.getElementById('nextMoonWatch').innerText = "no";
+        }
+    };
+    request.send();
+};
 
 
 
