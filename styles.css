@@ -1,12 +1,10 @@
 
-body{
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+html {
+    background: url('images/christmas_decor_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-image: url('images/rainy_leaf.jpg');
-    /* min-width: 100%; */
-    overflow: hidden;
 }
 
 body,
@@ -28,10 +26,11 @@ a{
 }
 
 
+/* 
 @media screen and (max-width: 500px) {
     body {
         background-image: url('images/christmas_decor_background.jpg');
         background-size: cover;
-        /* background-attachment: scroll; */
+        background-attachment: scroll;
     }
-}
+} */
