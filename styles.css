@@ -39,5 +39,6 @@ a{
         background-position: center;
         width: auto;
         height: auto;
+        background-origin: border-box;
     }
 }

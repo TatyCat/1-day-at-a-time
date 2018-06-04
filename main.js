@@ -46,6 +46,7 @@ var callbackFunction = function (data) {
     document.getElementById("displaySunRise").innerText = astronomy.sunrise;
     document.getElementById("displaySunSet").innerText = astronomy.sunset;
 
+
     //Yahoo Get Location & Display city
     var item = data.query.results.channel.item;
     document.getElementById('cityLocation').innerText = item.title;
@@ -57,15 +58,11 @@ var callbackFunction = function (data) {
     var item = data.query.results.channel.item;
     document.getElementById("currentWeatherText").innerText = item.condition.text;
     document.getElementById("currentTemp").innerText = item.condition.temp;
-    
-
 
     //For the day
     document.getElementById("highTemp").innerText = data.query.results.channel.item.forecast[0].high;
     document.getElementById("lowTemp").innerText = data.query.results.channel.item.forecast[0].low;
-
     document.getElementById("forcastText").innerText = data.query.results.channel.item.forecast[0].text;
-
     document.getElementById("getHumidity").innerText = data.query.results.channel.atmosphere.humidity;
 
     var wind = data.query.results.channel.wind;
@@ -101,9 +98,10 @@ fetch(weatherRequest)
 
 
 //--TOP NEWS API--
+var newsKey = configKeys.newsApiKey;
 let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
-    'apiKey=c835c5821eec41829538c121edd4e178';
+    'apiKey='+ newsKey;
 
 let newsReq = new Request(topNewsUrl);
 fetch(newsReq)
