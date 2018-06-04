@@ -4,7 +4,6 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg'); */
     background-image: url('images/rainy_leaf.jpg');
     min-width: 100%;
     overflow: hidden;
@@ -31,7 +30,8 @@ a{
 @media screen and (max-width: 500px) {
     body {
         background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
-        background-attachment: scroll;
-        background-repeat: no-repeat;
+        /* background-attachment: scroll; */
+        background-size: cover;
+        min-width: 100%;
     }
 }
