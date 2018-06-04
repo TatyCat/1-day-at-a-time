@@ -32,7 +32,7 @@ a{
     body {
         background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
         /* background-image: none; */
-        min-width: 100%;
+        min-height: 100%;
         background-size: cover;
         overflow: hidden;
     }
