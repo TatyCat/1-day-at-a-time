@@ -16,7 +16,7 @@ if ((getTimeOfDay >= 12) && (getTimeOfDay <= 16)) {
 
 if ((getTimeOfDay >= 17) && (getTimeOfDay <= 20)) {
     document.getElementById('greetingtimeOfDay').innerText = "Evening";
-    document.getElementById('welcomeGreeting').style.color = "#62c200";
+    document.getElementById('welcomeGreeting').style.color = "Cornsilk";
     // document.getElementById('welcomeGreeting').style.color = "white";
 }
 if ((getTimeOfDay >= 21) && (getTimeOfDay <= 23)) {
