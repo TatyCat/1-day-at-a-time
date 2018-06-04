@@ -37,6 +37,9 @@ a{
 
 @media screen and (max-width: 500px) {
     html {
+        /* background-attachment: scroll; */
+        height: auto !important;
+/*         
         -webkit-background-size: auto;
         -moz-background-size: auto;
         -o-background-size: auto;
@@ -46,6 +49,6 @@ a{
         background-attachment: fixed;
         width: auto;
         height: auto;
-        background-origin: none;
+        background-origin: none; */
     }
 }
