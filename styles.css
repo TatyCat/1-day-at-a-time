@@ -31,7 +31,8 @@ a{
 @media screen and (max-width: 500px) {
     body {
         background-image: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
-        background-attachment: scroll;
+        /* background-attachment: scroll; */
+        background-attachment: initial;
         /* background-size: cover;
         background-origin: context-box; */
     }
