@@ -29,7 +29,7 @@ a{
 
 @media screen and (max-width: 500px) {
     html {
-        background-size: cover;
+        background-size: scroll;
         height: 100%;
         overflow: hidden;
     }
