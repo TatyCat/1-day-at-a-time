@@ -1,6 +1,6 @@
 
 html {
-    background: url('images/wood_background.jpg');
+    background: url('images/pink-tulips-on-wood-texture_4460x4460.jpg');
     /* -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -31,8 +31,9 @@ a{
 
 
 
-/* @media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) {
     html {
-       
+       width: auto;
+       height: auto;
     }
-} */
+}
