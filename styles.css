@@ -1,5 +1,5 @@
 
-body {
+html {
     background: url('images/rainy_leaf.jpg'); 
     background-attachment: fixed;
     background-position: center;
@@ -9,7 +9,6 @@ body {
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
-
 }
 
 
@@ -34,33 +33,19 @@ a{
 
 
 @media screen and (max-width: 500px) {
-    body,
-    html {
-    /* reset css! */
-        background: none;
-        background-attachment: fixed;
-        /* background-position: none; */
-        -webkit-background-size: none;
-        -moz-background-size: none;
-        -o-background-size: none;
-        background-size: none;
-        height: 100%;
-        }
-        
-    /* New css */
-        /* background-position: center; */
-           
-
-        .bg {
-            background-image: url(images/wood_background.jpg);
-            /* Full height */
-            height: 100%;
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
+     html {
+         /* reset css! */
+         background: none;
+         background-attachment: fixed;
+         /* background-position: none; */
+         -webkit-background-size: none;
+         -moz-background-size: none;
+         -o-background-size: none;
+         background-size: none;
+         height: 0%;
+         /* New css */
+         background-image: url(images/pink-tulips-on-wood-texture_4460x4460.jpg);
+         background-position: center;
     }
     
 }
