@@ -4,13 +4,11 @@ html {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
-    height: 100%;
+    height: 100%; 
 
 }
 
@@ -36,25 +34,29 @@ a{
 
 
 @media screen and (max-width: 500px) {
-    body {
-        -moz-background-size: auto;
+    html {
+        /* reset css! */
+        background: none;
+        background-attachment: none;
+        /* background-position: none; */
+    
+        -webkit-background-size: none;
+        -moz-background-size: none;
+        -o-background-size: none;
+        background-size: none;
+        height: 0%;
+
+        background-image: url(images/pink-tulips-on-wood-texture_4460x4460.jpg);
+        background-position: center center;
+
+
+
+        /* -moz-background-size: auto;
         -webkit-background-size: auto;
         background-attachment: scroll;
         background-position: top;
         background-size: auto;
-        height: auto !important;
-        overflow: hidden;
-
-/*      
-        -webkit-background-size: auto;
-        -moz-background-size: auto;
-        -o-background-size: auto;
-        background-size: auto;
-        background-repeat: no-repeat;
-         background-position: center;
-        background-attachment: fixed;
-        width: auto;
-        height: auto;
-        background-origin: none; */
+        height: auto !important; */
     }
+    
 }
