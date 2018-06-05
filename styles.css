@@ -35,7 +35,7 @@ a{
 @media screen and (max-width: 500px) {
      html {
          /* reset css! */
-
+        background-attachment: scroll;
           background: url(images/pink-tulips-on-wood-texture_4460x4460.jpg) no-repeat center center fixed;
           -webkit-background-size: cover;
           -moz-background-size: cover;
@@ -45,7 +45,7 @@ a{
           overflow: hidden;
 /* 
          background-image: none;
-         background-attachment: none;
+         background-attachment: scroll;
          background-position: none;
          -webkit-background-size: none;
          -moz-background-size: none;
