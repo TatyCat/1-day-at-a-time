@@ -25,7 +25,7 @@ body:after {
     -o-background-size: cover;
     background-size: cover;
     width: 100%; */
-}
+
 
 
 body,
@@ -38,31 +38,10 @@ a{
 }
 
 .greeting{
-    font-size: 4.5vw;
+    /* font-size: 4.5vw; */
     width: 50%;
 }
 
 .shadowText{
     text-shadow:1px 1px 0 #666;
-}
-
-
-
-@media screen and (max-width: 500px) {
-    
-
-/* 
-         background-image: none;
-         background-attachment: scroll;
-         background-position: none;
-         -webkit-background-size: none;
-         -moz-background-size: none;
-         -o-background-size: none;
-         background-size: none;
-        background-repeat: no-repeat;
-         New css
-         background-image: url(images/pink-tulips-on-wood-texture_4460x4460.jpg);
-         background-position: center; }*/
-    
-    
 }
