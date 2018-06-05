@@ -41,7 +41,7 @@ a{
          -webkit-background-size: none;
          -moz-background-size: none;
          -o-background-size: none;
-         background-size: none;
+         background-size: contain;
 
          /* New css */
          background-image: url(images/pink-tulips-on-wood-texture_4460x4460.jpg);
