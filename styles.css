@@ -1,5 +1,5 @@
 
-html {
+body {
     background: url('images/rainy_leaf.jpg'); 
     background-attachment: fixed;
     background-position: center;
@@ -33,7 +33,7 @@ a{
 
 
 @media screen and (max-width: 500px) {
-     html:after {
+     body:after {
          content: "";
          position: fixed;
          /* stretch a fixed position to the whole screen */
@@ -50,7 +50,7 @@ a{
          -o-background-size: cover;
          background-size: cover;
      }
-     
+
 /* 
          background-image: none;
          background-attachment: scroll;
