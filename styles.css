@@ -1,5 +1,5 @@
 
-html {
+body {
     background: url('images/rainy_leaf.jpg'); 
     background-attachment: fixed;
     background-position: center;
@@ -8,7 +8,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100%; 
+    width: 100%;
 
 }
 
@@ -34,6 +34,7 @@ a{
 
 
 @media screen and (max-width: 500px) {
+    body,
     html {
     /* reset css! */
         background: none;
@@ -43,12 +44,22 @@ a{
         -moz-background-size: none;
         -o-background-size: none;
         background-size: none;
-        height: 0%;
+        height: 100%;
+        }
+        
     /* New css */
-        background-image: url(images/christmas_decor_background.jpg);
-        background-position: center;
+        /* background-position: center; */
+           
 
-
+        .bg {
+            background-image: url(images/christmas_decor_background.jpg);
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
     }
     
