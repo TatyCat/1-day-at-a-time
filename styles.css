@@ -1,6 +1,22 @@
 
-body {
-    background: url('images/rainy_leaf.jpg'); 
+body:after {
+         content: "";
+         position: fixed;
+         /* stretch a fixed position to the whole screen */
+         top: 0;
+         height: 100vh;
+         /* fix for mobile browser address bar appearing disappearing */
+         left: 0;
+         right: 0;
+         z-index: -1;
+         /* needed to keep in the background */
+         background: url(https://www.w3schools.com/css/trolltunga.jpg) center center;
+         -webkit-background-size: cover;
+         -moz-background-size: cover;
+         -o-background-size: cover;
+         background-size: cover;
+     }
+    /* background: url('images/rainy_leaf.jpg'); 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -8,7 +24,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    width: 100%;
+    width: 100%; */
 }
 
 
@@ -33,23 +49,7 @@ a{
 
 
 @media screen and (max-width: 500px) {
-     body:after {
-         content: "";
-         position: fixed;
-         /* stretch a fixed position to the whole screen */
-         top: 0;
-         height: 100vh;
-         /* fix for mobile browser address bar appearing disappearing */
-         left: 0;
-         right: 0;
-         z-index: -1;
-         /* needed to keep in the background */
-         background: url(https://www.w3schools.com/css/trolltunga.jpg) center center;
-         -webkit-background-size: cover;
-         -moz-background-size: cover;
-         -o-background-size: cover;
-         background-size: cover;
-     }
+    
 
 /* 
          background-image: none;
