@@ -38,8 +38,7 @@ a{
 }
 
 .greeting{
-    /* font-size: 4.5vw; */
-    width: 50%;
+    font-size: 4vw;
 }
 
 .shadowText{
