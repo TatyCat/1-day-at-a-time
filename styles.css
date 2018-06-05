@@ -35,28 +35,21 @@ a{
 
 @media screen and (max-width: 500px) {
     html {
-        /* reset css! */
+    /* reset css! */
         background: none;
         background-attachment: none;
         /* background-position: none; */
-    
         -webkit-background-size: none;
         -moz-background-size: none;
         -o-background-size: none;
         background-size: none;
         height: 0%;
-
+    /* New css */
         background-image: url(images/pink-tulips-on-wood-texture_4460x4460.jpg);
-        background-position: center center;
+        background-position: bottom bottom;
 
 
 
-        /* -moz-background-size: auto;
-        -webkit-background-size: auto;
-        background-attachment: scroll;
-        background-position: top;
-        background-size: auto;
-        height: auto !important; */
     }
     
 }
