@@ -111,8 +111,8 @@ fetch(newsReq)
     .then(function (newsData) {
         for (let i = 0; i < newsData.totalResults; i++) {
             var createArticleCards = document.createElement('p');
-            document.getElementById('topNews').innerHTML += '<div class = "w3-card w3-margin"> '
-            +'<img src="' + newsData.articles[i].urlToImage + '" class="w3-image" >'
+            document.getElementById('topNews').innerHTML += '<div class="w3-card w3-margin">'
+                + '<img src="' + newsData.articles[i].urlToImage + '" class="w3-image w3-margin-top" style="width: 90%; height: 70%;">'
             + '<div class = "w3-container w3-center"> '
             +'<b><p class="w3-small"> ' + newsData.articles[i].title + ' </p></b> '
             +'<p class="w3-small"> ' + newsData.articles[i].description + ' </p> '
