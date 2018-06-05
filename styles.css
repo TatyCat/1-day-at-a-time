@@ -36,13 +36,13 @@ a{
      html {
          /* reset css! */
          background: none;
-         background-attachment: fixed;
-         /* background-position: none; */
+         /* background-attachment: fixed; */
+         background-position: none;
          -webkit-background-size: none;
          -moz-background-size: none;
          -o-background-size: none;
          background-size: none;
-         height: 0%;
+
          /* New css */
          background-image: url(images/pink-tulips-on-wood-texture_4460x4460.jpg);
          background-position: center;
