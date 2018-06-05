@@ -44,3 +44,8 @@ a{
 .shadowText{
     text-shadow:1px 1px 0 #666;
 }
+
+.newsPhotos{
+    width: 90%;
+    height: 70%;
+}
