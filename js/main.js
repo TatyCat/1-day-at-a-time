@@ -51,10 +51,10 @@ function getLocation() {
 function showPosition(position) {
     currentLatLong = position.coords.latitude + ',' + position.coords.longitude;
 
-    document.getElementById("weatherAlertPanel").innerText = currentLatLong;
-    
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
+
+    document.getElementById("weatherAlertPanel").innerText = reverseGeocodingUrl;
 
     let locationReverseApi = new Request(reverseGeocodingUrl);
 
