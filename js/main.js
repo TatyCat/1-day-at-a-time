@@ -63,6 +63,7 @@ function showPosition(position) {
         
     //works at this point
     let locationReverseApi = new Request(reverseGeocodingUrl);
+    document.getElementById('weatherAlertPanel').innerHTML = "hi !" + currentLatLong;
     
         //converts lat/long into city & state string for api usage
     fetch(locationReverseApi)
@@ -70,7 +71,6 @@ function showPosition(position) {
             return locationResponse.json();
         })
         .then(function (locationData) {
-            document.getElementById('weatherAlertPanel').innerHTML = "hi!" + currentLatLong;
             
             //Alert on mobile no longer popping up (on private and regular mode) after several refreshes.
             currentCity = locationData.results[0].locations[0].adminArea5.toLowerCase();
