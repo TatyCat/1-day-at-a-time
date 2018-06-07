@@ -51,32 +51,29 @@ function getLocation() {
 };
 
 function showPosition(position) {
+        //uses position of long and lat...currentLatLong formats it for reverseGeocoding
     currentLatLong = position.coords.latitude + ',' + position.coords.longitude;
+    
     //Theory1: Alert is no longer showing because data is saved. Testing if location was saved.
     //T1 Tested and Confirmed. Due to location not changing, popup no longer shows. 
 
+        //create url with lat/long for reverse 
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
-
+        
     //works at this point
-    var locationReverseApi = new Request(reverseGeocodingUrl);
-
-    //api stops working somewhere between top and below lines...
+    let locationReverseApi = new Request(reverseGeocodingUrl);
+    
+        //converts lat/long into city & state string for api usage
     fetch(locationReverseApi)
         .then(function (locationResponse) {
-            //does not work
-            document.getElementById("displaySunRise").innerText = "post fetch";
             return locationResponse.json();
         })
         .then(function (locationData) {
             //Alert on mobile no longer popping up (on private and regular mode) after several refreshes.
-            
-            // document.getElementById("weatherAlertPanel").innerText = "Break on Mobile Found Here...";
             currentCity = locationData.results[0].locations[0].adminArea5.toLowerCase();
             currentST = locationData.results[0].locations[0].adminArea3;
             
-            document.getElementById("weatherAlertPanel").innerText = currentCity + ", " + currentST;
-
             getData(currentCity, currentST);
         });
 };
