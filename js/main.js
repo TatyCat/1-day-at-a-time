@@ -130,25 +130,25 @@ function getData(currentCity, currentST) {
     });
 
 //--Severe Weather Alerts API--
-    var wAlertUrl = "https://api.weather.gov/alerts/active?point=" + currentLatLong;
+    // var wAlertUrl = "https://api.weather.gov/alerts/active?point=" + currentLatLong;
 
-    var weatherAlertRequest = new Request(wAlertUrl);
-    fetch(weatherAlertRequest)
-        .then(function (weatherAlertResponse) {
-            return weatherAlertResponse.json();
-        })
-        .then(function (weatherAlertData) {
-            for (var i = 0; i < weatherAlertData.features.length; i++) {
-                var alertItem = document.createElement('p');
-                document.getElementById('weatherAlertPanel').innerHTML += 
-                '<p class="w3-text-white w3-small w3-panel w3-red w3-round-large w3-section">'  
-                + weatherAlertData.features[i].properties.severity
-                + " " 
-                + weatherAlertData.features[i].properties.headline
-                + "<br>" 
-                + '</p>';
-            }
-        });
+    // var weatherAlertRequest = new Request(wAlertUrl);
+    // fetch(weatherAlertRequest)
+    //     .then(function (weatherAlertResponse) {
+    //         return weatherAlertResponse.json();
+    //     })
+    //     .then(function (weatherAlertData) {
+    //         for (var i = 0; i < weatherAlertData.features.length; i++) {
+    //             var alertItem = document.createElement('p');
+    //             document.getElementById('weatherAlertPanel').innerHTML += 
+    //             '<p class="w3-text-white w3-small w3-panel w3-red w3-round-large w3-section">'  
+    //             + weatherAlertData.features[i].properties.severity
+    //             + " " 
+    //             + weatherAlertData.features[i].properties.headline
+    //             + "<br>" 
+    //             + '</p>';
+    //         }
+    //     });
 
 
 
