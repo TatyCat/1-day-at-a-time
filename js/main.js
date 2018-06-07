@@ -43,7 +43,6 @@ getLocation();
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
-
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -52,6 +51,8 @@ function getLocation() {
 function showPosition(position) {
     currentLatLong = position.coords.latitude + ',' + position.coords.longitude;
 
+    document.getElementById("weatherAlertPanel").innerText = currentLatLong;
+    
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
 
