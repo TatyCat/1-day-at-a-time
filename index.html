@@ -68,6 +68,7 @@
             <div>
                 <p id="weatherAlertPanel"></p>
             </div>
+            <p class="w3-large">City location provided by Mapquest</p>
         </div>
         
         <br>
@@ -127,28 +128,8 @@
     </footer>
     
 <!--JS Scripts-->
-    <script type='text/javascript' src='config.js'></script>
-    <script src="main.js"></script>
-    <script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='tampa, fl')&format=json&callback=callbackFunction"></script>
-    
+    <script src="js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        
-        $.ajax({
-            url: 'https://weather.cit.api.here.com/weather/1.0/report.json',
-            type: 'GET',
-            dataType: 'jsonp',
-            jsonp: 'jsonpcallback',
-            data: {
-                product: 'forecast_astronomy',
-                name: 'tampa',
-                app_id: 'DemoAppId01082013GAL',
-                app_code: 'AJKnXv84fjrb0KIHawS0Tg'
-            },
-            success: function (moonData) {
-                document.getElementById("curMoonWatch").innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;
-            }
-        });  
-    </script>
+    <script id="moonApiScript"></script>
 </body>
 </html>
