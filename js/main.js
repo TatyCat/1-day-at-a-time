@@ -52,8 +52,8 @@ function getLocation() {
 
 function showPosition(position) {
     currentLatLong = position.coords.latitude + ',' + position.coords.longitude;
-    //Theory: Alert is no longer showing because data is saved. Testing if location was saved.
-    document.getElementById("weatherAlertPanel").innerText = currentLatLong;
+    //Theory1: Alert is no longer showing because data is saved. Testing if location was saved.
+    //T1 Tested and Confirmed. Due to location not changing, popup no longer shows. 
 
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
@@ -62,11 +62,13 @@ function showPosition(position) {
 
     fetch(locationReverseApi)
         .then(function (locationResponse) {
+            document.getElementById("weatherAlertPanel").innerText = locationResponse;
             return locationResponse.json();
         })
         .then(function (locationData) {
             //Alert on mobile no longer popping up (on private and regular mode) after several refreshes.
-            document.getElementById("weatherAlertPanel").innerText = "Break on Mobile Found Here...";
+            
+            // document.getElementById("weatherAlertPanel").innerText = "Break on Mobile Found Here...";
             currentCity = locationData.results[0].locations[0].adminArea5.toLowerCase();
             currentST = locationData.results[0].locations[0].adminArea3;
             
