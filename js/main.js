@@ -63,7 +63,6 @@ function showPosition(position) {
         
     //works at this point
     let locationReverseApi = new Request(reverseGeocodingUrl);
-    document.getElementById('weatherAlertPanel').innerHTML = "hi !" + currentLatLong;
     
         //converts lat/long into city & state string for api usage
     fetch(locationReverseApi)
@@ -99,7 +98,6 @@ function showError(error) {
 
 
 //getData() function uses the geolocation data from the getLocation() function to use in all of the APIs.
-
 function getData(currentCity, currentST) {
 
 //--Yahoo WEATHER API--
@@ -112,24 +110,24 @@ function getData(currentCity, currentST) {
         })
         .then(function (weatherData) {
        
-        //Yahoo Get Sunrise/Set
+        //Yahoo - Get Sunrise/Set
         var astronomy = weatherData.query.results.channel.astronomy;
         document.getElementById("displaySunRise").innerText = astronomy.sunrise;
         document.getElementById("displaySunSet").innerText = astronomy.sunset;
 
-        // Yahoo Get Location & Display city
+        // Yahoo - Get Location & Display city
         var item = weatherData.query.results.channel.item;
         document.getElementById('cityLocation').innerText = item.title;
         
 
-        //Yahoo Get Forcast
+        //Yahoo - Get Forcast
 
-        //Current
+        //Current Forcast
         var item = weatherData.query.results.channel.item;
         document.getElementById("currentWeatherText").innerText = item.condition.text;
         document.getElementById("currentTemp").innerText = item.condition.temp;
 
-        //For the day
+        //Forcast for the day
         document.getElementById("highTemp").innerText = weatherData.query.results.channel.item.forecast[0].high;
         document.getElementById("lowTemp").innerText = weatherData.query.results.channel.item.forecast[0].low;
         document.getElementById("forcastText").innerText = weatherData.query.results.channel.item.forecast[0].text;
@@ -137,60 +135,61 @@ function getData(currentCity, currentST) {
 
         var wind = weatherData.query.results.channel.wind;
         document.getElementById("windInfo").innerHTML = "Wind Chill: " + wind.chill + "&nbsp; / &nbsp;Wind Speed:  " + wind.speed;
-        
     });
 
-//--Severe Weather Alerts API--
-    // var wAlertUrl = "https://api.weather.gov/alerts/active?point=" + currentLatLong;
 
-    // var weatherAlertRequest = new Request(wAlertUrl);
-    // fetch(weatherAlertRequest)
-    //     .then(function (weatherAlertResponse) {
-    //         return weatherAlertResponse.json();
-    //     })
-    //     .then(function (weatherAlertData) {
-    //         for (var i = 0; i < weatherAlertData.features.length; i++) {
-    //             var alertItem = document.createElement('p');
-    //             document.getElementById('weatherAlertPanel').innerHTML += 
-    //             '<p class="w3-text-white w3-small w3-panel w3-red w3-round-large w3-section">'  
-    //             + weatherAlertData.features[i].properties.severity
-    //             + " " 
-    //             + weatherAlertData.features[i].properties.headline
-    //             + "<br>" 
-    //             + '</p>';
-    //         }
-    //     });
+
+//--Severe Weather Alerts API--
+    var wAlertUrl = "https://api.weather.gov/alerts/active?point=" + currentLatLong;
+
+    var weatherAlertRequest = new Request(wAlertUrl);
+    fetch(weatherAlertRequest)
+        .then(function (weatherAlertResponse) {
+            return weatherAlertResponse.json();
+        })
+        .then(function (weatherAlertData) {
+            for (var i = 0; i < weatherAlertData.features.length; i++) {
+                var alertItem = document.createElement('p');
+                document.getElementById('weatherAlertPanel').innerHTML += 
+                '<p class="w3-text-white w3-small w3-panel w3-red w3-round-large w3-section">'  
+                + weatherAlertData.features[i].properties.severity
+                + " " 
+                + weatherAlertData.features[i].properties.headline
+                + "<br>" 
+                + '</p>';
+            }
+        });
 
 
 
 //--Moon API--
-    // document.getElementById("moonApiScript").innerHTML = 
-    //     "$(document).ready(function () {$.ajax({url: 'https://weather.cit.api.here.com/weather/1.0/report.json',type: 'GET',dataType: 'jsonp',jsonp: 'jsonpcallback',data: {product: 'forecast_astronomy',name: '"+currentCity+"',app_id: 'DemoAppId01082013GAL',app_code: 'AJKnXv84fjrb0KIHawS0Tg'},success: function (moonData) {document.getElementById('curMoonWatch').innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;}});});"
-    //The Moon API is located on the html page due to CORS issue. JSONP only works with the 'HERE' API. Script generated in JS file for dynamic city data based on geolocation.
+    document.getElementById("moonApiScript").innerHTML = 
+        "$(document).ready(function () {$.ajax({url: 'https://weather.cit.api.here.com/weather/1.0/report.json',type: 'GET',dataType: 'jsonp',jsonp: 'jsonpcallback',data: {product: 'forecast_astronomy',name: '"+currentCity+"',app_id: 'DemoAppId01082013GAL',app_code: 'AJKnXv84fjrb0KIHawS0Tg'},success: function (moonData) {document.getElementById('curMoonWatch').innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;}});});"
+    The Moon API is located on the html page due to CORS issue. JSONP only works with the 'HERE' API. Script generated in JS file for dynamic city data based on geolocation.
 
 
 
 //--TOP NEWS API--
-    // let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
-    //     'country=us&' +
-    //     'apiKey=' + 'c835c5821eec41829538c121edd4e178';
+    let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
+        'country=us&' +
+        'apiKey=' + 'c835c5821eec41829538c121edd4e178';
 
-    // let newsReq = new Request(topNewsUrl);
-    // fetch(newsReq)
-    //     .then(function (newsResponse) {
-    //     return newsResponse.json();
-    //     })
-    //     .then(function (newsData) {
-    //         for (let i = 0; i < newsData.totalResults; i++) {
-    //             var createArticleCards = document.createElement('p');
-    //             document.getElementById('topNews').innerHTML += '<div class="w3-card w3-margin">'
-    //                 + '<img src="' + newsData.articles[i].urlToImage + '" class="w3-image w3-margin-top newsPhotos">'
-    //             + '<div class = "w3-container w3-center"> '
-    //             +'<b><p class="w3-small"> ' + newsData.articles[i].title + ' </p></b> '
-    //             +'<p class="w3-small"> ' + newsData.articles[i].description + ' </p> '
-    //             +'<p><a class="w3-small" target="_blank" href="' + newsData.articles[i].url + '">[Link]</a></p>'
-    //             +'</div>';
-    //         }
-    //     });
+    let newsReq = new Request(topNewsUrl);
+    fetch(newsReq)
+        .then(function (newsResponse) {
+        return newsResponse.json();
+        })
+        .then(function (newsData) {
+            for (let i = 0; i < newsData.totalResults; i++) {
+                var createArticleCards = document.createElement('p');
+                document.getElementById('topNews').innerHTML += '<div class="w3-card w3-margin">'
+                    + '<img src="' + newsData.articles[i].urlToImage + '" class="w3-image w3-margin-top newsPhotos">'
+                + '<div class = "w3-container w3-center"> '
+                +'<b><p class="w3-small"> ' + newsData.articles[i].title + ' </p></b> '
+                +'<p class="w3-small"> ' + newsData.articles[i].description + ' </p> '
+                +'<p><a class="w3-small" target="_blank" href="' + newsData.articles[i].url + '">[Link]</a></p>'
+                +'</div>';
+            }
+        });
 };
 
