@@ -57,9 +57,10 @@ function showPosition(position) {
 
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
-
+        
+    document.getElementById("weatherAlertPanel").innerText = "something...";
     let locationReverseApi = new Request(reverseGeocodingUrl);
-document.getElementById("weatherAlertPanel").innerText = "something...";
+
     fetch(locationReverseApi)
         .then(function (locationResponse) {
             return locationResponse.json();
