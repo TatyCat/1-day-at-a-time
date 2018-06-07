@@ -59,10 +59,9 @@ function showPosition(position) {
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
 
     let locationReverseApi = new Request(reverseGeocodingUrl);
-
+document.getElementById("weatherAlertPanel").innerText = "something...";
     fetch(locationReverseApi)
         .then(function (locationResponse) {
-            document.getElementById("weatherAlertPanel").innerText = "something...";
             return locationResponse.json();
         })
         .then(function (locationData) {
