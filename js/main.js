@@ -54,8 +54,6 @@ function showPosition(position) {
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
 
-    document.getElementById("weatherAlertPanel").innerText = reverseGeocodingUrl;
-
     let locationReverseApi = new Request(reverseGeocodingUrl);
 
     fetch(locationReverseApi)
@@ -65,7 +63,8 @@ function showPosition(position) {
         .then(function (locationData) {
             currentCity = locationData.results[0].locations[0].adminArea5.toLowerCase();
             currentST = locationData.results[0].locations[0].adminArea3;
-            // currentCity: Pulls CITY then STATE data
+            
+            document.getElementById("weatherAlertPanel").innerText = currentCity + ", " + currentST;
 
             getData(currentCity, currentST);
         });
