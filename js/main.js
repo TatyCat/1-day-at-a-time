@@ -153,8 +153,8 @@ function getData(currentCity, currentST) {
 
 
 //--Moon API--
-    document.getElementById("moonApiScript").innerHTML = 
-        "$(document).ready(function () {$.ajax({url: 'https://weather.cit.api.here.com/weather/1.0/report.json',type: 'GET',dataType: 'jsonp',jsonp: 'jsonpcallback',data: {product: 'forecast_astronomy',name: '"+currentCity+"',app_id: 'DemoAppId01082013GAL',app_code: 'AJKnXv84fjrb0KIHawS0Tg'},success: function (moonData) {document.getElementById('curMoonWatch').innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;}});});"
+    // document.getElementById("moonApiScript").innerHTML = 
+    //     "$(document).ready(function () {$.ajax({url: 'https://weather.cit.api.here.com/weather/1.0/report.json',type: 'GET',dataType: 'jsonp',jsonp: 'jsonpcallback',data: {product: 'forecast_astronomy',name: '"+currentCity+"',app_id: 'DemoAppId01082013GAL',app_code: 'AJKnXv84fjrb0KIHawS0Tg'},success: function (moonData) {document.getElementById('curMoonWatch').innerText = moonData.astronomy.astronomy[0].moonPhaseDesc;}});});"
     //The Moon API is located on the html page due to CORS issue. JSONP only works with the 'HERE' API. Script generated in JS file for dynamic city data based on geolocation.
 
 
