@@ -61,10 +61,11 @@ function showPosition(position) {
             return locationResponse.json();
         })
         .then(function (locationData) {
+            document.getElementById("weatherAlertPanel").innerText = "Possible Break Found...";
             currentCity = locationData.results[0].locations[0].adminArea5.toLowerCase();
             currentST = locationData.results[0].locations[0].adminArea3;
             
-            document.getElementById("weatherAlertPanel").innerText = currentCity + ", " + currentST;
+            // document.getElementById("weatherAlertPanel").innerText = currentCity + ", " + currentST;
 
             getData(currentCity, currentST);
         });
