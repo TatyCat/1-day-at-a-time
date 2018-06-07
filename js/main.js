@@ -39,7 +39,9 @@ document.getElementById('greetingDate').innerText = weekdays[getTodaysDay] + ", 
 
 //--GeoLocation API & Service--
 var currentLatLong, currentCity, currentST;
+
 getLocation();
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -50,6 +52,8 @@ function getLocation() {
 
 function showPosition(position) {
     currentLatLong = position.coords.latitude + ',' + position.coords.longitude;
+    //Theory: Alert is no longer showing because data is saved. Testing if location was saved.
+    document.getElementById("weatherAlertPanel").innerText = currentLatLong;
 
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
@@ -61,7 +65,8 @@ function showPosition(position) {
             return locationResponse.json();
         })
         .then(function (locationData) {
-            document.getElementById("weatherAlertPanel").innerText = "Possible Break Found...";
+            //Alert on mobile no longer popping up (on private and regular mode) after several refreshes.
+            document.getElementById("weatherAlertPanel").innerText = "Break on Mobile Found Here...";
             currentCity = locationData.results[0].locations[0].adminArea5.toLowerCase();
             currentST = locationData.results[0].locations[0].adminArea3;
             
