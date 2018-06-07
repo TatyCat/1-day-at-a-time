@@ -62,7 +62,7 @@ function showPosition(position) {
 
     fetch(locationReverseApi)
         .then(function (locationResponse) {
-            document.getElementById("weatherAlertPanel").innerText = locationResponse;
+            document.getElementById("weatherAlertPanel").innerText = "something...";
             return locationResponse.json();
         })
         .then(function (locationData) {
