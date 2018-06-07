@@ -57,12 +57,14 @@ function showPosition(position) {
 
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
-        
-    document.getElementById("weatherAlertPanel").innerText = "something...";
-    let locationReverseApi = new Request(reverseGeocodingUrl);
 
+    document.getElementById("weatherAlertPanel").innerText = "stopping point";
+    var locationReverseApi = new Request(reverseGeocodingUrl);
+    document.getElementById("curMoonWatch").innerText = "post new reqeust for reverse geocoding";
+    //api stops working somewhere between top and below lines...
     fetch(locationReverseApi)
         .then(function (locationResponse) {
+            document.getElementById("displaySunRise").innerText = "post fetch";
             return locationResponse.json();
         })
         .then(function (locationData) {
