@@ -58,12 +58,13 @@ function showPosition(position) {
     let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
 
-    document.getElementById("weatherAlertPanel").innerText = "stopping point";
+    //works at this point
     var locationReverseApi = new Request(reverseGeocodingUrl);
-    document.getElementById("curMoonWatch").innerText = "post new reqeust for reverse geocoding";
+
     //api stops working somewhere between top and below lines...
     fetch(locationReverseApi)
         .then(function (locationResponse) {
+            //does not work
             document.getElementById("displaySunRise").innerText = "post fetch";
             return locationResponse.json();
         })
@@ -74,7 +75,7 @@ function showPosition(position) {
             currentCity = locationData.results[0].locations[0].adminArea5.toLowerCase();
             currentST = locationData.results[0].locations[0].adminArea3;
             
-            // document.getElementById("weatherAlertPanel").innerText = currentCity + ", " + currentST;
+            document.getElementById("weatherAlertPanel").innerText = currentCity + ", " + currentST;
 
             getData(currentCity, currentST);
         });
