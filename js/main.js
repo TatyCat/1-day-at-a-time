@@ -52,7 +52,7 @@ function getLocation() {
 function showPosition(position) {
     currentLatLong = position.coords.latitude + ',' + position.coords.longitude;
 
-    let reverseGeocodingUrl = 'http://www.mapquestapi.com/geocoding/v1/reverse?' +
+    let reverseGeocodingUrl = 'https://www.mapquestapi.com/geocoding/v1/reverse?' +
         'key=cF2wsQg6dFT47JDxjKUrqkLrAvXIQSEN&location=' + currentLatLong;
 
     let locationReverseApi = new Request(reverseGeocodingUrl);
@@ -85,7 +85,7 @@ function showError(error) {
             x.innerHTML = '<p class="w3-red">An unknown error occurred.</p>'
             break;
     }
-}
+};
 
 
 //getData() function uses the geolocation data from the getLocation() function to use in all of the APIs.
