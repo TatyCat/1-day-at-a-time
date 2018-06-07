@@ -91,6 +91,7 @@ function showError(error) {
 //getData() function uses the geolocation data from the getLocation() function to use in all of the APIs.
 
 function getData(currentCity, currentST) {
+
 //--Yahoo WEATHER API--
     let wUrl = "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + currentCity + "," + currentST + "')&format=json";
     var weatherRequest = new Request(wUrl);
@@ -126,7 +127,7 @@ function getData(currentCity, currentST) {
 
         var wind = weatherData.query.results.channel.wind;
         document.getElementById("windInfo").innerHTML = "Wind Chill: " + wind.chill + "&nbsp; / &nbsp;Wind Speed:  " + wind.speed;
-        // }
+        
     });
 
 //--Severe Weather Alerts API--
@@ -160,26 +161,26 @@ function getData(currentCity, currentST) {
 
 
 //--TOP NEWS API--
-    let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
-        'country=us&' +
-        'apiKey=' + 'c835c5821eec41829538c121edd4e178';
+    // let topNewsUrl = 'https://newsapi.org/v2/top-headlines?' +
+    //     'country=us&' +
+    //     'apiKey=' + 'c835c5821eec41829538c121edd4e178';
 
-    let newsReq = new Request(topNewsUrl);
-    fetch(newsReq)
-        .then(function (newsResponse) {
-        return newsResponse.json();
-        })
-        .then(function (newsData) {
-            for (let i = 0; i < newsData.totalResults; i++) {
-                var createArticleCards = document.createElement('p');
-                document.getElementById('topNews').innerHTML += '<div class="w3-card w3-margin">'
-                    + '<img src="' + newsData.articles[i].urlToImage + '" class="w3-image w3-margin-top newsPhotos">'
-                + '<div class = "w3-container w3-center"> '
-                +'<b><p class="w3-small"> ' + newsData.articles[i].title + ' </p></b> '
-                +'<p class="w3-small"> ' + newsData.articles[i].description + ' </p> '
-                +'<p><a class="w3-small" target="_blank" href="' + newsData.articles[i].url + '">[Link]</a></p>'
-                +'</div>';
-            }
-        });
+    // let newsReq = new Request(topNewsUrl);
+    // fetch(newsReq)
+    //     .then(function (newsResponse) {
+    //     return newsResponse.json();
+    //     })
+    //     .then(function (newsData) {
+    //         for (let i = 0; i < newsData.totalResults; i++) {
+    //             var createArticleCards = document.createElement('p');
+    //             document.getElementById('topNews').innerHTML += '<div class="w3-card w3-margin">'
+    //                 + '<img src="' + newsData.articles[i].urlToImage + '" class="w3-image w3-margin-top newsPhotos">'
+    //             + '<div class = "w3-container w3-center"> '
+    //             +'<b><p class="w3-small"> ' + newsData.articles[i].title + ' </p></b> '
+    //             +'<p class="w3-small"> ' + newsData.articles[i].description + ' </p> '
+    //             +'<p><a class="w3-small" target="_blank" href="' + newsData.articles[i].url + '">[Link]</a></p>'
+    //             +'</div>';
+    //         }
+    //     });
 };
 
